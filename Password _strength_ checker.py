@@ -201,3 +201,43 @@ function estimateCrackTime(pwd) {
   if (/[A-Z]/.test(pwd)) poolSize += 26;
   if (/[0-9]/.test(pwd)) poolSize += 10;
   if (/[^A-Za-z0-9]/.test(pwd)) poolSize += 32;
+ const combinations = Math.pow(poolSize, pwd.length);
+  const guessesPerSecond = 1e9;
+  const seconds = combinations / guessesPerSecond;
+
+  if (seconds < 1) return '~instantly';
+  if (seconds < 60) return `~${Math.round(seconds)} sec to crack`;
+  if (seconds < 3600) return `~${Math.round(seconds/60)} min to crack`;
+  if (seconds < 86400) return `~${Math.round(seconds/3600)} hrs to crack`;
+  if (seconds < 31536000) return `~${Math.round(seconds/86400)} days to crack`;
+  const years = seconds / 31536000;
+  if (years > 1e6) return `~millions of years to crack`;
+  return `~${Math.round(years)} yrs to crack`;
+}
+
+function generatePwd() {
+  const upper = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+  const lower = 'abcdefghijkmnpqrstuvwxyz';
+  const numbers = '23456789';
+  const special = '!@#$%^&*';
+  const all = upper + lower + numbers + special;
+
+  let pwd = '';
+  pwd += upper[Math.floor(Math.random()*upper.length)];
+  pwd += lower[Math.floor(Math.random()*lower.length)];
+  pwd += numbers[Math.floor(Math.random()*numbers.length)];
+  pwd += special[Math.floor(Math.random()*special.length)];
+
+  for (let i = 0; i < 8; i++) {
+    pwd += all[Math.floor(Math.random()*all.length)];
+  }
+
+  pwd = pwd.split('').sort(() => Math.random() - 0.5).join('');
+
+  document.getElementById('pwd').value = pwd;
+  analyze();
+}
+</script>
+
+</body>
+</html>
