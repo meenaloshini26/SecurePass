@@ -1,4 +1,4 @@
-# Password Strength Checker
+# Securepass
 
 A real-time password strength analyzer built using HTML, CSS, and JavaScript.
 
