@@ -1,12 +1,19 @@
 # Password Strength Checker
 
-A Python project that checks password strength based on:
-- Length
-- Uppercase letters
-- Lowercase letters
-- Numbers
-- Special characters
+A real-time password strength analyzer built using HTML, CSS, and JavaScript.
 
-Developed using Python in Pydroid 3.
+## Features
+- Real-time strength checking as you type
+- Checks length, uppercase, lowercase, numbers, and special characters
+- Common password detection
+- Password generator with one click
+- Crack-time estimation
+- Color-coded strength meter
 
-Author: Meenaloshini 
+## Technologies Used
+- HTML5
+- CSS3
+- JavaScript (Vanilla JS, DOM manipulation)
+
+## Author
+Meenaloshini
